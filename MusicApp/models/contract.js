@@ -17,23 +17,23 @@ module.exports = function (sequelize, DataTypes) {
   });
   return user;
 
-  var creators = sequelize.define("creators", {
-    user_id: {
-      type: DataTypes.INT,
-      foreignKey: true,
-      allowNull: false
-    }
-  });
-  return creators;
+  // var creators = sequelize.define("creators", {
+  //   user_id: {
+  //     type: DataTypes.INT,
+  //     foreignKey: true,
+  //     allowNull: false
+  //   }
+  // });
+  // return creators;
 
-  var receivers = sequelize.define("receivers", {
-    user_id: {
-      type: DataTypes.INT,
-      foreignKey: true,
-      allowNull: false
-    }
-  });
-  return receivers;
+  // var receivers = sequelize.define("receivers", {
+  //   user_id: {
+  //     type: DataTypes.INT,
+  //     foreignKey: true,
+  //     allowNull: false
+  //   }
+  // });
+  // return receivers;
 
   var contracts = sequelize.define("contracts", {
     contract_id: {
@@ -43,11 +43,11 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false
     },
     creator_id: {
-      type: DataTypes.INT,
+      type: DataTypes.TEXT,
       allowNull: false
     },
     receiver_id: {
-      type: DataTypes.INT,
+      type: DataTypes.TEXT,
       allowNull: false
     },
     contract_text: {
