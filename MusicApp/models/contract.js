@@ -1,4 +1,4 @@
-module.exports = function (sequelize, DataTypes) {
+module.exports = function(sequelize, DataTypes) {
   var user = sequelize.define("users", {
     id: {
       type: DataTypes.INT,
@@ -8,32 +8,31 @@ module.exports = function (sequelize, DataTypes) {
     },
     user_name: {
       type: DataTypes.TEXT,
-      allowNull: false,
+      allowNull: false
     },
     email: {
       type: DataTypes.TEXT,
-      allowNull: false,
-    }
-  });
-  return user;
-
-  var creators = sequelize.define("creators", {
-    user_id: {
-      type: DataTypes.INT,
-      foreignKey: true,
       allowNull: false
     }
   });
-  return creators;
 
-  var receivers = sequelize.define("receivers", {
-    user_id: {
-      type: DataTypes.INT,
-      foreignKey: true,
-      allowNull: false
-    }
-  });
-  return receivers;
+  // var creators = sequelize.define("creators", {
+  //   user_id: {
+  //     type: DataTypes.INT,
+  //     foreignKey: true,
+  //     allowNull: false
+  //   }
+  // });
+  // return creators;
+
+  // var receivers = sequelize.define("receivers", {
+  //   user_id: {
+  //     type: DataTypes.INT,
+  //     foreignKey: true,
+  //     allowNull: false
+  //   }
+  // });
+  // return receivers;
 
   var contracts = sequelize.define("contracts", {
     contract_id: {
@@ -52,12 +51,11 @@ module.exports = function (sequelize, DataTypes) {
     },
     contract_text: {
       type: DataTypes.TEXT,
-      allowNull:false
+      allowNull: false
     },
 
     created_At: sequelize.DATE,
     updated_At: sequelize.DATE
-
   });
-  return contracts;
+  return contracts && user;
 };
