@@ -1,3 +1,34 @@
+
+
+ 
+const sideNav = document.querySelector('.sidenav');
+  M.Sidenav.init(sideNav,{});
+
+//   const slider = document.querySelectorAll('.sidenav');
+//   M.Sidenav.init(slider, {
+//     indicators: false,
+//     height:500,
+//     transition:500,
+//     interval: 6000
+
+
+
+//   });
+
+  $(document).ready(function(){
+    $('.parallax').parallax();
+    $('.sidenav').sidenav();
+    $('.slider').slider({
+      indicators: false,
+      height: 500,
+      transition: 500,
+      interval: 6000
+    });
+  });
+
+
+
+
 // Get references to page elements
 var $exampleText = $("#example-text");
 var $exampleDescription = $("#example-description");
@@ -97,3 +128,7 @@ var handleDeleteBtnClick = function() {
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
+
+
+
+       
