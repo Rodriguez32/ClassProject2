@@ -36,7 +36,7 @@ module.exports = function(sequelize, DataTypes) {
 
   var contracts = sequelize.define("contracts", {
     contract_id: {
-      type: DataTypes.INT,
+      type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
       allowNull: false
