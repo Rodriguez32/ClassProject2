@@ -36,25 +36,42 @@ var $exampleList = $("#example-list");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveExample: function(example) {
+  newUser: function(userData) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "api/examples",
-      data: JSON.stringify(example)
+      url: "api/users",
+      data: JSON.stringify(userData)
     });
   },
-  getExamples: function() {
+  newContract: function(contractData) {
     return $.ajax({
-      url: "api/examples",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      type: "POST",
+      url: "api/contracts",
+      data: JSON.stringify(contractData)
+    });
+  },
+  getContracts: function(email) {
+    return $.ajax({
+      url: "api/contracts/" + email,
       type: "GET"
     });
   },
-  deleteExample: function(id) {
+  updateContracts: function(data) {
     return $.ajax({
-      url: "api/examples/" + id,
+      type: "PUT",
+      url: "api/contracts/",
+      data: JSON.stringify(data)
+    });
+  },
+  deleteContract: function(id) {
+    return $.ajax({
+      url: "api/contracts/" + id,
       type: "DELETE"
     });
   }
