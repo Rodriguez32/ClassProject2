@@ -1,3 +1,39 @@
 .list-group-item {
   line-height: 2.5;
 }
+
+
+
+
+.parallax-1{
+ background-image:url("../images/slim.jpg")
+
+}
+
+body{
+  font-family: 'Exo 2', sans-serif;
+}
+
+.no {
+  font-size: 30px;
+}
+
+.socialmedia{
+margin: 20px 30px 20px 15px
+
+}
+
+.fa-4x{
+  margin: 10px 10px
+}
+
+.props{
+ float: left;
+ clear: bottom;
+
+}
+
+.wow{
+  float: left
+  clear:bottom
+}
