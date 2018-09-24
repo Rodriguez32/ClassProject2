@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var user = sequelize.define("users", {
+  var Members = sequelize.define("users", {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -34,7 +34,7 @@ module.exports = function(sequelize, DataTypes) {
   // });
   // return receivers;
 
-  var contracts = sequelize.define("contracts", {
+  var Contracts = sequelize.define("contracts", {
     contract_id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -54,8 +54,8 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
 
-    created_At: sequelize.DATE,
-    updated_At: sequelize.DATE
+    created_At: DataTypes.DATE,
+    updated_At: DataTypes.DATE
   });
-  return contracts && user;
+  return Members, Contracts;
 };

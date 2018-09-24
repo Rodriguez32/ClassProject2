@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 
  
@@ -9,6 +10,17 @@
     height:500,
     transition:500,
     interval: 6000
+=======
+const sideNav = document.querySelector('.sidenav');
+  M.Sidenav.init(sideNav,{});
+
+//   const slider = document.querySelectorAll('.sidenav');
+//   M.Sidenav.init(slider, {
+//     indicators: false,
+//     height:500,
+//     transition:500,
+//     interval: 6000
+>>>>>>> 789645c3132ccaa9e0c1196ca53cb0477aee0acc
 
 
 
@@ -29,11 +41,12 @@
 
 
 // Get references to page elements
-var $exampleText = $("#example-text");
-var $exampleDescription = $("#example-description");
+var $userName = $("#name");
+var $email = $("#email");
 var $submitBtn = $("#submit");
 var $exampleList = $("#example-list");
-
+var $createacc = $("#create_acc");
+var $password = $("#password");
 // The API object contains methods for each kind of request we'll make
 var API = {
   newUser: function(userData) {
@@ -108,25 +121,24 @@ var refreshExamples = function() {
 
 // handleFormSubmit is called whenever we submit a new example
 // Save the new example to the db and refresh the list
-var handleFormSubmit = function(event) {
+var createAccount = function(event) {
   event.preventDefault();
 
-  var example = {
-    text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim()
+  var user = {
+    email: $email.val().trim(),
+    user_name: $userName.val().trim()
   };
 
-  if (!(example.text && example.description)) {
+  if (!(user.email && user.user_name)) {
     alert("You must enter an example text and description!");
     return;
   }
 
-  API.saveExample(example).then(function() {
-    refreshExamples();
-  });
+  API.newUser(user);
 
-  $exampleText.val("");
-  $exampleDescription.val("");
+  $email.val("");
+  $userName.val("");
+  $password.val("");
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
@@ -142,7 +154,7 @@ var handleDeleteBtnClick = function() {
 };
 
 // Add event listeners to the submit and delete buttons
-$submitBtn.on("click", handleFormSubmit);
+$createacc.on("click", createAccount)
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
 
 
