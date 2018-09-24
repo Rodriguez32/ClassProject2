@@ -54,8 +54,8 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
 
-    created_At: sequelize.DATE,
-    updated_At: sequelize.DATE
+    created_At: DataTypes.DATE,
+    updated_At: DataTypes.DATE
   });
   return contracts && user;
 };

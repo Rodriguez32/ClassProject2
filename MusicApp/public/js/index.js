@@ -1,6 +1,3 @@
-
-
- 
 const sideNav = document.querySelector('.sidenav');
   M.Sidenav.init(sideNav,{});
 
@@ -30,11 +27,11 @@ const sideNav = document.querySelector('.sidenav');
 
 
 // Get references to page elements
-var $exampleText = $("#example-text");
-var $exampleDescription = $("#example-description");
+var $userName = $("#name");
+var $email = $("#email");
 var $submitBtn = $("#submit");
 var $exampleList = $("#example-list");
-
+var $createacc = $("#create_acc")
 // The API object contains methods for each kind of request we'll make
 var API = {
   newUser: function(userData) {
@@ -109,22 +106,20 @@ var refreshExamples = function() {
 
 // handleFormSubmit is called whenever we submit a new example
 // Save the new example to the db and refresh the list
-var handleFormSubmit = function(event) {
+var createAccount = function(event) {
   event.preventDefault();
 
-  var example = {
-    text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim()
+  var user = {
+    email: $email.val().trim(),
+    user_name: $userName.val().trim()
   };
 
-  if (!(example.text && example.description)) {
+  if (!(user.email && user.name)) {
     alert("You must enter an example text and description!");
     return;
   }
 
-  API.saveExample(example).then(function() {
-    refreshExamples();
-  });
+  API.newUser(user);
 
   $exampleText.val("");
   $exampleDescription.val("");
@@ -143,7 +138,7 @@ var handleDeleteBtnClick = function() {
 };
 
 // Add event listeners to the submit and delete buttons
-$submitBtn.on("click", handleFormSubmit);
+$create_acc.on("click", createAccount)
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
 
 
