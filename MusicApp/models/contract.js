@@ -57,5 +57,5 @@ module.exports = function(sequelize, DataTypes) {
     created_At: DataTypes.DATE,
     updated_At: DataTypes.DATE
   });
-  return user;
+  return user, contracts;
 };
