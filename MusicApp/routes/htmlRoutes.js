@@ -7,7 +7,7 @@ module.exports = function(app) {
     res.render("index");
   });
 
-  app.get("/create_account", function(req, res) {
+  app.get("/createaccount", function(req, res) {
     res.render("createaccount");
   });
 
