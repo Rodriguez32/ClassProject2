@@ -31,7 +31,8 @@ var $userName = $("#name");
 var $email = $("#email");
 var $submitBtn = $("#submit");
 var $exampleList = $("#example-list");
-var $createacc = $("#create_acc")
+var $createacc = $("#create_acc");
+var $password = $("#password");
 // The API object contains methods for each kind of request we'll make
 var API = {
   newUser: function(userData) {
@@ -114,15 +115,16 @@ var createAccount = function(event) {
     user_name: $userName.val().trim()
   };
 
-  if (!(user.email && user.name)) {
+  if (!(user.email && user.user_name)) {
     alert("You must enter an example text and description!");
     return;
   }
 
   API.newUser(user);
 
-  $exampleText.val("");
-  $exampleDescription.val("");
+  $email.val("");
+  $userName.val("");
+  $password.val("");
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
@@ -138,7 +140,7 @@ var handleDeleteBtnClick = function() {
 };
 
 // Add event listeners to the submit and delete buttons
-$create_acc.on("click", createAccount)
+$createacc.on("click", createAccount)
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
 
 
