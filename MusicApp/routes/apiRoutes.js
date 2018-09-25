@@ -1,5 +1,4 @@
 var db = require("../models");
-require("../models/contract.js");
 
 // Routes
 // =============================================================
@@ -25,10 +24,7 @@ module.exports = function(app) {
 
   // POST route for adding a new user
   app.post("/api/users", function(req, res) {
-    console.log(db.Members);
-    console.log("----");
-    console.log(req.body);
-    Members.create({
+    db.Members.create({
       user_name: req.body.user_name,
       email: req.body.email
     }).then(function(newUser) {
