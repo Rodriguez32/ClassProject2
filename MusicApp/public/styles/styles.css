@@ -37,6 +37,10 @@ margin: 20px 30px 20px 15px
   float: left;
   clear: bottom
 }
+
+.foot{
+  background: #2196f3;
+}
 /* 
 form#cms {
   margin-top: 50px;
