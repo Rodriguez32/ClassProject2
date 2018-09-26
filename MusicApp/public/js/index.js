@@ -18,7 +18,8 @@ $(document).ready(function() {
   });
 });
 // Get references to page elements
-var $userName = $("#name");
+var $login = $("#login");
+var $userName = $("#user_name");
 var $email = $("#email");
 var $submitBtn = $("#submitcontract");
 var $exampleList = $("#example-list");
@@ -150,6 +151,15 @@ var createContract = function(event) {
   API.newContract(newContract);
 };
 
+var loginAccount = function(event) {
+  event.preventDefault();
+  var user = {
+    email: $email.val().trim()
+    // password: $password.val().trim()
+  };
+  $(location).attr("href", "/dashboard/" + user.email);
+};
+
 // handleDeleteBtnClick is called when an example's delete button is clicked
 // Remove the example from the db and refresh the list
 var handleDeleteBtnClick = function() {
@@ -166,3 +176,4 @@ var handleDeleteBtnClick = function() {
 $createacc.on("click", createAccount);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
 $submitBtn.on("click", createContract);
+$login.on("click", loginAccount);
