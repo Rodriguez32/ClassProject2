@@ -17,11 +17,10 @@ $(document).ready(function() {
     interval: 6000
   });
 });
-
 // Get references to page elements
 var $userName = $("#name");
 var $email = $("#email");
-var $submitBtn = $("#submitcontract");
+// var $submitBtn = $("#submit");
 var $exampleList = $("#example-list");
 var $createacc = $("#create_acc");
 var $password = $("#password");

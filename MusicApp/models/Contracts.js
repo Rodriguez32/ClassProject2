@@ -17,10 +17,7 @@ module.exports = function(sequelize, DataTypes) {
     contract_text: {
       type: DataTypes.TEXT,
       allowNull: false
-    },
-
-    created_At: DataTypes.DATE,
-    updated_At: DataTypes.DATE
+    }
   });
 
   return Contracts;
