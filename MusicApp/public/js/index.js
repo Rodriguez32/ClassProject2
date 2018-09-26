@@ -24,6 +24,7 @@ var $email = $("#email");
 var $submitBtn = $("#submitcontract");
 var $exampleList = $("#example-list");
 var $createacc = $("#create_acc");
+var $login = $("#login");
 var $password = $("#password");
 // The API object contains methods for each kind of request we'll make
 var API = {
@@ -107,8 +108,6 @@ var createAccount = function(event) {
     user_name: $userName.val().trim()
   };
 
-  console.log(user);
-
   if (!(user.email && user.user_name)) {
     alert("You must enter an example text and description!");
     return;
@@ -119,6 +118,17 @@ var createAccount = function(event) {
   $email.val("");
   $userName.val("");
   $password.val("");
+};
+
+
+var loginAccount = function(event) {
+  event.preventDefault();
+
+  var user = {
+    email: $email.val().trim()
+    // password: $password.val().trim()
+  };
+  $(location).attr("href", "/dashboard/" + user.email);
 };
 
 var createContract = function(event) {
@@ -150,7 +160,6 @@ var createContract = function(event) {
 
   API.newContract(newContract);
 };
-
 var loginAccount = function(event) {
   event.preventDefault();
   var user = {
@@ -174,6 +183,7 @@ var handleDeleteBtnClick = function() {
 
 // Add event listeners to the submit and delete buttons
 $createacc.on("click", createAccount);
+$login.on("click", loginAccount);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
 $submitBtn.on("click", createContract);
 $login.on("click", loginAccount);
