@@ -8,14 +8,17 @@ module.exports = function(app) {
     res.render("index");
   });
 
+  // Create Account page
   app.get("/createaccount", function(req, res) {
     res.render("createaccount");
   });
 
+  // Login page
   app.get("/login", function(req, res) {
     res.render("login");
   });
 
+  // Test page
   app.get("/test", function(req, res) {
     db.Example.findAll({}).then(function(dbExamples) {
       res.render("index", {
@@ -25,6 +28,7 @@ module.exports = function(app) {
     });
   });
 
+  // Dashboard Page
   app.get("/dashboard", function(req, res) {
     res.render("dashboard");
   });
@@ -36,6 +40,11 @@ module.exports = function(app) {
   //     });
   //   });
   // });
+
+  // Create Contract Page
+  app.get("/contract-form", function(req, res) {
+    res.render("contract-form");
+  });
 
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
