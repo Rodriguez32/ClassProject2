@@ -28,13 +28,13 @@
                 <div class="card-content">
                     <span class="card-title">Create Account</span>
                     <div class="row">
-                        <form class="col s12" method="POST" action="/createaccount">
+                        <form class="col s12">
                             <div class="row">
                                 
                                 <div class="input-field col s6">
                                     <label for="first_name">Name</label>
                                     <select>
-                                    <input id="user_name" type="text" class="validate" name="user_name">
+                                    <input id="user_name" type="text" name="user_name">
                                     </select>
                                 </div>
                                 
@@ -42,18 +42,18 @@
 
                             <div class="row">
                                 <div class="input-field col s6">
-                                    <input id="password" type="password" class="validate" name="password">
+                                    <input id="password" type="password" name="password">
                                     <label for="password">Password</label>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="input-field col s6">
-                                    <input id="email" type="email" name = "email"class="validate">
+                                    <input id="email" type="text" name = "email">
                                     <label for="email">Email</label>
                                 </div>
                             </div>
 
-                            <button class="btn waves-effect waves-light blue" type="submit" id="create_acc " name="action">Create Account
+                            <button class="btn waves-effect waves-light blue" id="create_acc" name="action">Create Account
                                 <i class="material-icons right">send</i>
                             </button>
                             <br>

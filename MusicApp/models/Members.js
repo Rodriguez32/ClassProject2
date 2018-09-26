@@ -17,18 +17,7 @@ module.exports = function(sequelize, DataTypes) {
         isEmail: true
       }
     },
-    password: {
-      type: DataTypes.STRING,
-      validate: {
-        notnull: true,
-        notEmpty: true
-      }
-    },
-    last_login: { type: DataTypes.DATE },
-    status: {
-      type: DataTypes.ENUM("active", "inactive"),
-      defaultValue: "active"
-    }
+    last_login: { type: DataTypes.DATE }
   });
 
   return Members;

@@ -18,7 +18,6 @@ module.exports = (async function() {
 
     console.log("done");
     await browser.close();
-    process.exit();
     
   } catch (e) {
     console.log("our error", e);
