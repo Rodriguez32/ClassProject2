@@ -3,5 +3,3 @@ node_modules
 npm-debug.log
 .env
 contractpdf.js
-Doc1.pdf
-server.js

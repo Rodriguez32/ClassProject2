@@ -18,6 +18,7 @@ $(document).ready(function() {
   });
 });
 // Get references to page elements
+var $login = $("#login");
 var $userName = $("#user_name");
 var $email = $("#email");
 var $submitBtn = $("#submitcontract");
@@ -106,13 +107,7 @@ var createAccount = function(event) {
     email: $email.val().trim(),
     user_name: $userName.val().trim()
   };
-<<<<<<< HEAD
-  console.log(user);
-=======
 
-  console.log(user);
-
->>>>>>> master
   if (!(user.email && user.user_name)) {
     alert("You must enter an example text and description!");
     return;
@@ -125,7 +120,7 @@ var createAccount = function(event) {
   $password.val("");
 };
 
-<<<<<<< HEAD
+
 var loginAccount = function(event) {
   event.preventDefault();
 
@@ -135,7 +130,7 @@ var loginAccount = function(event) {
   };
   $(location).attr("href", "/dashboard/" + user.email);
 };
-=======
+
 var createContract = function(event) {
   event.preventDefault();
 
@@ -165,8 +160,15 @@ var createContract = function(event) {
 
   API.newContract(newContract);
 };
+var loginAccount = function(event) {
+  event.preventDefault();
+  var user = {
+    email: $email.val().trim()
+    // password: $password.val().trim()
+  };
+  $(location).attr("href", "/dashboard/" + user.email);
+};
 
->>>>>>> master
 // handleDeleteBtnClick is called when an example's delete button is clicked
 // Remove the example from the db and refresh the list
 var handleDeleteBtnClick = function() {
@@ -184,3 +186,4 @@ $createacc.on("click", createAccount);
 $login.on("click", loginAccount);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
 $submitBtn.on("click", createContract);
+$login.on("click", loginAccount);
