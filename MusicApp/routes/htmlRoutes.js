@@ -1,21 +1,22 @@
 var db = require("../models");
 
-//var path = require("path");
-
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
     res.render("index");
   });
 
+  // Create Account page
   app.get("/createaccount", function(req, res) {
     res.render("createaccount");
   });
 
+  // Login page
   app.get("/login", function(req, res) {
     res.render("login");
   });
 
+  // Test page
   app.get("/test", function(req, res) {
     db.Example.findAll({}).then(function(dbExamples) {
       res.render("index", {
@@ -25,18 +26,18 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/dashboard", function(req, res) {
-    res.render("dashboard");
+  app.get("/dashboard/:email", function(req, res) {
+    db.Contracts.findAll({
+      where: {
+        creator_id: req.params.email
+      }
+    }).then(function(myContracts) {
+      console.log(myContracts[0].dataValues.contract_id);
+      res.render("dashboard", {
+        myContracts: myContracts
+      });
+    });
   });
-  // Load example page and pass in an example by id
-  // app.get("/example/:id", function(req, res) {
-  //   db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
-  //     res.render("example", {
-  //       example: dbExample
-  //     });
-  //   });
-  // });
-
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.render("404");

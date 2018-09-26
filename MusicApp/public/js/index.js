@@ -17,11 +17,10 @@ $(document).ready(function() {
     interval: 6000
   });
 });
-
 // Get references to page elements
 var $userName = $("#name");
 var $email = $("#email");
-var $submitBtn = $("#submit");
+// var $submitBtn = $("#submit");
 var $exampleList = $("#example-list");
 var $createacc = $("#create_acc");
 var $password = $("#password");
@@ -64,6 +63,15 @@ var API = {
     return $.ajax({
       url: "api/contracts/" + id,
       type: "DELETE"
+    });
+  },
+  sendEmail: function(data) {
+    return $.ajax({
+      type: "POST",
+      url: "api/email",
+      data: data,
+      success: console.log("POSTED"),
+      dataType: "json"
     });
   }
 };
@@ -131,6 +139,27 @@ var handleDeleteBtnClick = function() {
   });
 };
 
+// Send email function attached to the submit contract button
+// var sendEmail = function(data) {
+
+//   console.log("Sending Email!");
+//   fetch("/api/email", {
+//     method: "POST",
+//     mode: "cors",
+//     cache: "no-cache",
+//     credentials: "same-origin",
+//     headers: {
+//       "Content-Type": "application/json; charset=utf-8"
+//     },
+//     redirect: "follow",
+//     referrer: "no-referrer",
+//     body: JSON.stringify(data),
+//   })
+//   .then(data=>{return data.json()})
+//   .then(res=>{console.log(res.json())})
+
+// };
 // Add event listeners to the submit and delete buttons
 $createacc.on("click", createAccount);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
+// $submitBtn.on("click", API.sendEmail);

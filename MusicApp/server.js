@@ -1,4 +1,5 @@
 require("dotenv").config();
+
 var express = require("express");
 var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
@@ -38,6 +39,7 @@ require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 require("./routes/auth.js")(app, passport);
 require("./config/passport.js")(passport, db.user);
+require("./public/js/contractpdf");
 
 var syncOptions = { force: false };
 
