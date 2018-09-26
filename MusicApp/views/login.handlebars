@@ -1,3 +1,30 @@
+<div class="navbar-fixed">
+  <nav class= "blue">
+    <div class="container">
+      <div class = "nav-wrapper">
+      <a href="#" class=" ctr brand-logo">Trust Me</a>
+      <a href = "#" data-target = "mobile-nav" class = "sidenav-trigger"><i class = "material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down" >
+        <li><a href="/login">Login</a></li> 
+        <li><a href="/createaccount">Create Account</a></li>
+      </ul>
+      </div>
+    </div>
+  </nav>
+  </div>
+  <ul class="sidenav" id ="mobile-nav" >
+        <li><a href="/login">Login</a></li>
+        <li><a href="/createaccount">Create Account</a></li>
+        <li><a href="#">Contact Us</a></li>
+   </ul>
+
+
+
+
+
+
+
+
 <section class="loginwall">
     <div class="row">
         <div class="col s12 m4 logbox offset-m3 offset-l4 ">
@@ -5,17 +32,17 @@
                 <div class="card-content ">
                     <span class="card-title center">Trust Me</span>
                     <div class="row">
-                        <form class="col s12">
+                        <form class="col s12 " action="/authenticate" method="post" >
 
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <input id="email" type="email" class="validate">
+                                    <input id="email"  type="email" name="email" class="validate">
                                     <label for="email">Email</label>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <input id="password" type="password" class="validate">
+                                    <input name= "password"id="password" type="password" class="validate">
                                     <label for="password">Password</label>
                                 </div>
                             </div>
@@ -40,3 +67,28 @@
 
 
      </section>
+<footer class="page-footer foot">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">Trust Me</h5>
+                <p class="grey-text text-lighten-4">Trust Me does not provide legal services. Nor are we a legal or accredited institution.</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Links</h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="/login">Log In</a></li>
+                  <li><a class="grey-text text-lighten-3" href="/createaccount">Create Account</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Contact Us</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!"></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2018 Copyright
+            
+            </div>
+          </div>
+        </footer>
