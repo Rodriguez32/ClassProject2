@@ -1,19 +1,19 @@
-var exports = (module.exports = {});
+// var exports = (module.exports = {});
 
-exports.signup = function(req, res) {
-  res.render("createaccount");
-};
+// exports.signup = function(req, res) {
+//   res.render("createaccount");
+// };
 
-exports.signin = function(req, res) {
-  res.render("login");
-};
+// exports.signin = function(req, res) {
+//   res.render("login");
+// };
 
-exports.dashboard = function(req, res) {
-  res.render("dashboard");
-};
+// exports.dashboard = function(req, res) {
+//   res.render("dashboard");
+// };
 
-exports.logout = function(req, res) {
-  req.session.destroy(function(err) {
-    res.redirect("/");
-  });
-};
+// exports.logout = function(req, res) {
+//   req.session.destroy(function(err) {
+//     res.redirect("/");
+//   });
+// };

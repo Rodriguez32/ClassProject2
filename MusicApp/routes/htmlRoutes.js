@@ -38,6 +38,11 @@ module.exports = function(app) {
       });
     });
   });
+
+  app.get("/contract-form", function(req, res) {
+    res.render("contract-form");
+  });
+
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.render("404");

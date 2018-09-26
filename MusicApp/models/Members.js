@@ -23,12 +23,12 @@ module.exports = function(sequelize, DataTypes) {
         notnull: true,
         notEmpty: true
       }
-    },
-    last_login: { type: DataTypes.DATE },
-    status: {
-      type: DataTypes.ENUM("active", "inactive"),
-      defaultValue: "active"
     }
+    // last_login: { type: DataTypes.DATE },
+    // status: {
+    //   type: DataTypes.ENUM("active", "inactive"),
+    //   defaultValue: "active"
+    // }
   });
 
   return Members;
