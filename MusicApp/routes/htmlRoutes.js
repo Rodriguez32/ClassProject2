@@ -6,14 +6,17 @@ module.exports = function(app) {
     res.render("index");
   });
 
+  // Create Account page
   app.get("/createaccount", function(req, res) {
     res.render("createaccount");
   });
 
+  // Login page
   app.get("/login", function(req, res) {
     res.render("login");
   });
 
+  // Test page
   app.get("/test", function(req, res) {
     db.Example.findAll({}).then(function(dbExamples) {
       res.render("index", {
