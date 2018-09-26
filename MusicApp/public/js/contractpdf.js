@@ -1,4 +1,4 @@
-// PDF generation with Pupputeer
+// PDF generation with Puppeteer
 const puppeteer = require("puppeteer");
 const fs = require("fs-extra");
 
@@ -11,14 +11,14 @@ module.exports = (async function() {
     await page.setContent("<h1>hello</h1>");
     await page.emulateMedia("screen");
     await page.pdf({
-      path: "Doc1.pdf",
+      path: "SimpleContract.pdf",
       format: "A4",
       printBackground: true
     });
 
     console.log("done");
     await browser.close();
-    process.exit();
+    //process.exit();
     
   } catch (e) {
     console.log("our error", e);
