@@ -7,7 +7,7 @@
 
 //   });
 
-$(document).ready(function(){
+$(document).ready(function() {
   $(".parallax").parallax();
   $(".sidenav").sidenav();
   $(".slider").slider({
@@ -17,14 +17,10 @@ $(document).ready(function(){
     interval: 6000
   });
 });
-
-
-
-
 // Get references to page elements
 var $userName = $("#name");
 var $email = $("#email");
-var $submitBtn = $("#submit");
+// var $submitBtn = $("#submit");
 var $exampleList = $("#example-list");
 var $createacc = $("#create_acc");
 var $password = $("#password");
@@ -135,5 +131,5 @@ var handleDeleteBtnClick = function() {
 };
 
 // Add event listeners to the submit and delete buttons
-$createacc.on("click", createAccount);;
+$createacc.on("click", createAccount);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
