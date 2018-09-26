@@ -14,7 +14,23 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.TEXT,
       allowNull: false
     },
-    contract_text: {
+    title: {
+      type: DataTypes.TEXT,
+      allowNull: false
+    },
+    type: {
+      type: DataTypes.TEXT,
+      allowNull: false
+    },
+    offer: {
+      type: DataTypes.TEXT,
+      allowNull: false
+    },
+    extra: {
+      type: DataTypes.TEXT,
+      allowNull: false
+    },
+    signature: {
       type: DataTypes.TEXT,
       allowNull: false
     }

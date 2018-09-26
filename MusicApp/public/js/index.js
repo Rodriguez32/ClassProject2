@@ -20,7 +20,7 @@ $(document).ready(function() {
 // Get references to page elements
 var $userName = $("#name");
 var $email = $("#email");
-// var $submitBtn = $("#submit");
+var $submitBtn = $("#submitcontract");
 var $exampleList = $("#example-list");
 var $createacc = $("#create_acc");
 var $password = $("#password");
@@ -64,15 +64,6 @@ var API = {
       url: "api/contracts/" + id,
       type: "DELETE"
     });
-  },
-  sendEmail: function(data) {
-    return $.ajax({
-      type: "POST",
-      url: "api/email",
-      data: data,
-      success: console.log("POSTED"),
-      dataType: "json"
-    });
   }
 };
 
@@ -115,6 +106,8 @@ var createAccount = function(event) {
     user_name: $userName.val().trim()
   };
 
+  console.log(user);
+
   if (!(user.email && user.user_name)) {
     alert("You must enter an example text and description!");
     return;
@@ -125,6 +118,36 @@ var createAccount = function(event) {
   $email.val("");
   $userName.val("");
   $password.val("");
+};
+
+var createContract = function(event) {
+  event.preventDefault();
+
+  var newContract = {
+    creatoremail: $("#creatoremail")
+      .val()
+      .trim(),
+    title: $("#title")
+      .val()
+      .trim(),
+    type: $("#type").val(),
+    offer: $("#offer")
+      .val()
+      .trim(),
+    extra: $("#extra")
+      .val()
+      .trim(),
+    contracteeEmail: $("#contracteeEmail")
+      .val()
+      .trim(),
+    signature: $("#signature")
+      .val()
+      .trim()
+  };
+
+  console.log(newContract);
+
+  API.newContract(newContract);
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
@@ -139,27 +162,7 @@ var handleDeleteBtnClick = function() {
   });
 };
 
-// Send email function attached to the submit contract button
-// var sendEmail = function(data) {
-
-//   console.log("Sending Email!");
-//   fetch("/api/email", {
-//     method: "POST",
-//     mode: "cors",
-//     cache: "no-cache",
-//     credentials: "same-origin",
-//     headers: {
-//       "Content-Type": "application/json; charset=utf-8"
-//     },
-//     redirect: "follow",
-//     referrer: "no-referrer",
-//     body: JSON.stringify(data),
-//   })
-//   .then(data=>{return data.json()})
-//   .then(res=>{console.log(res.json())})
-
-// };
 // Add event listeners to the submit and delete buttons
 $createacc.on("click", createAccount);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
-// $submitBtn.on("click", API.sendEmail);
+$submitBtn.on("click", createContract);
