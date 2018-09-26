@@ -20,7 +20,7 @@ $(document).ready(function() {
 // Get references to page elements
 var $userName = $("#user_name");
 var $email = $("#email");
-// var $submitBtn = $("#submit");
+var $submitBtn = $("#submitcontract");
 var $exampleList = $("#example-list");
 var $createacc = $("#create_acc");
 var $login = $("#login");
@@ -65,15 +65,6 @@ var API = {
       url: "api/contracts/" + id,
       type: "DELETE"
     });
-  },
-  sendEmail: function(data) {
-    return $.ajax({
-      type: "POST",
-      url: "api/email",
-      data: data,
-      success: console.log("POSTED"),
-      dataType: "json"
-    });
   }
 };
 
@@ -115,7 +106,13 @@ var createAccount = function(event) {
     email: $email.val().trim(),
     user_name: $userName.val().trim()
   };
+<<<<<<< HEAD
   console.log(user);
+=======
+
+  console.log(user);
+
+>>>>>>> master
   if (!(user.email && user.user_name)) {
     alert("You must enter an example text and description!");
     return;
@@ -128,6 +125,7 @@ var createAccount = function(event) {
   $password.val("");
 };
 
+<<<<<<< HEAD
 var loginAccount = function(event) {
   event.preventDefault();
 
@@ -137,6 +135,38 @@ var loginAccount = function(event) {
   };
   $(location).attr("href", "/dashboard/" + user.email);
 };
+=======
+var createContract = function(event) {
+  event.preventDefault();
+
+  var newContract = {
+    creatoremail: $("#creatoremail")
+      .val()
+      .trim(),
+    title: $("#title")
+      .val()
+      .trim(),
+    type: $("#type").val(),
+    offer: $("#offer")
+      .val()
+      .trim(),
+    extra: $("#extra")
+      .val()
+      .trim(),
+    contracteeEmail: $("#contracteeEmail")
+      .val()
+      .trim(),
+    signature: $("#signature")
+      .val()
+      .trim()
+  };
+
+  console.log(newContract);
+
+  API.newContract(newContract);
+};
+
+>>>>>>> master
 // handleDeleteBtnClick is called when an example's delete button is clicked
 // Remove the example from the db and refresh the list
 var handleDeleteBtnClick = function() {
@@ -149,28 +179,8 @@ var handleDeleteBtnClick = function() {
   });
 };
 
-// Send email function attached to the submit contract button
-// var sendEmail = function(data) {
-
-//   console.log("Sending Email!");
-//   fetch("/api/email", {
-//     method: "POST",
-//     mode: "cors",
-//     cache: "no-cache",
-//     credentials: "same-origin",
-//     headers: {
-//       "Content-Type": "application/json; charset=utf-8"
-//     },
-//     redirect: "follow",
-//     referrer: "no-referrer",
-//     body: JSON.stringify(data),
-//   })
-//   .then(data=>{return data.json()})
-//   .then(res=>{console.log(res.json())})
-
-// };
 // Add event listeners to the submit and delete buttons
 $createacc.on("click", createAccount);
 $login.on("click", loginAccount);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
-// $submitBtn.on("click", API.sendEmail);
+$submitBtn.on("click", createContract);

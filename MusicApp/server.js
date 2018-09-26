@@ -39,7 +39,7 @@ require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 // require("./routes/auth.js")(app, passport);
 // require("./config/passport.js")(passport, db.user);
-require("./public/js/contractpdf");
+// require("./public/js/contractpdf");
 
 var syncOptions = { force: false };
 
@@ -61,3 +61,11 @@ db.sequelize.sync(syncOptions).then(function() {
 });
 
 module.exports = app;
+
+// app.use(
+//   session({
+//     secret: "secret",
+//     saveUninitialized: true,
+//     resave: true
+//   })
+// );

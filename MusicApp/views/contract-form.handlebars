@@ -1,128 +1,135 @@
- <div class="navbar-fixed">
-    <nav class="blue">
-      <div class="container">
-        <div class="nav-wrapper">
-          <a href="#" class=" ctr brand-logo">Trust Me</a>
-          <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-          <ul class="right hide-on-med-and-down">
-            <li><a href="#">UserName</a></li>
-            <li><a href="/dashboard">Dashboard</a></li>
-            <li><a href="/contract-form">Create Contract</a></li>
-          </ul>
+<div class="navbar-fixed">
+  <nav class="blue">
+    <div class="container">
+      <div class="nav-wrapper">
+        <a href="#" class=" ctr brand-logo">Trust Me</a>
+        <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="#">UserName</a></li>
+          <li><a href="/dashboard">Dashboard</a></li>
+          <li><a href="/contract-form">Create Contract</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<div class="row">
+  <div class="col s12 m6 ">
+    <div class="card center-align">
+      <div class="card-content">
+        <span class="card-title">Contract</span>
+        <div class="row">
+          <form id="contractform" class="col s12">
+            <div class="row">
+
+              <div class="input-field col s6">
+                <label for="creatoremail">Your email address</label>
+                <select>
+                  <input name="creatoremail" id="creatoremail" type="text" class="validate">
+                </select>
+              </div>
+
+              <div class="input-field col s6">
+                <label for="title">Title</label>
+                <select>
+                  <input name="title" id="title" type="text" class="validate">
+                </select>
+              </div>
+
+            </div>
+
+            <select name="type" id="type" class="browser-default">
+
+              <option value="">Type of Contract</option>
+              <option value="1">Basic</option>
+              <option value="2">Payment Agreement</option>
+              <option value="3"></option>
+              <option value="4"></option>
+              <option value="5"></option>
+              <option value="6"></option>
+              <option value="7"></option>
+              <option value="8"></option>
+              <option value="9"></option>
+              <option value="10"></option>
+            </select>
+
+            <div class="row">
+              <form class="col s12">
+                <div class="row">
+                  <div class="input-field col s12">
+                    <textarea name="offer" id="offer" class="materialize-textarea"></textarea>
+                    <label for="offer">Offer</label>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <div class="row">
+              <form class="col s12">
+                <div class="row">
+                  <div class="input-field col s12">
+                    <textarea name="extra" id="extra" class="materialize-textarea"></textarea>
+                    <label for="extra">Extra Stipulations</label>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+
+            <div class="row">
+              <div class="input-field col s6">
+                <input name="contracteeEmail" id="contracteeEmail" type="text" data-length="10">
+                <label for="contracteeEmail">Contractee(e-mail address)</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s6">
+                <input name="signature" id="signature" type="text" data-length="10">
+                <label for="signature">Signature</label>
+              </div>
+            </div>
+
+
+
+            <button class="btn waves-effect waves-light" type="submit" id="submitcontract" name="submitbtn">Submit
+              <i class="material-icons right">send</i>
+            </button>
+            <br>
+            <p>By clicking Submit, you indicate that you have Read and Agree to the <a href="#">
+                Terms</a> .</p>
+
+          </form>
         </div>
       </div>
-    </nav>
+
+    </div>
   </div>
-
-  <div class="row">
-    <div class="col s12 m6 ">
-      <div class="card center-align">
-        <div class="card-content">
-          <span class="card-title">Contract</span>
-          <div class="row">
-            <form method="POST" action="/api/email" class="col s12">
-              <div class="row">
-
-                <div class="input-field col s6">
-                  <label for="title">Title</label>
-                  <select>
-                    <input id="title" type="text" class="validate">
-                  </select>
-                </div>
-
-              </div>
-
-              <select class="browser-default">
-
-                <option value="" disabled selected>Type of Contract</option>
-                <option value="1">Basic</option>
-                <option value="2">Payment Agreement</option>
-                <option value="3"></option>
-                <option value="4"></option>
-                <option value="5"></option>
-                <option value="6"></option>
-                <option value="7"></option>
-                <option value="8"></option>
-                <option value="9"></option>
-                <option value="10"></option>
-              </select>
-
-              <div class="row">
-                <form class="col s12">
-                  <div class="row">
-                    <div class="input-field col s12">
-                      <textarea id="offer" class="materialize-textarea"></textarea>
-                      <label for="offer">Offer</label>
-                    </div>
-                  </div>
-                </form>
-              </div>e
-
-              <div class="row">
-                <form class="col s12">
-                  <div class="row">
-                    <div class="input-field col s12">
-                      <textarea id="extra" class="materialize-textarea"></textarea>
-                      <label for="extra">Extra Stipulations</label>
-                    </div>
-                  </div>
-                </form>
-              </div>
-
-
-              <div class="row">
-                <div class="input-field col s6">
-                  <input id="contractee-email" type="text" data-length="10">
-                  <label for="contractee-email">Contractee(e-mail address)</label>
-                </div>
-              </div>
-
-              <div class="row">
-                  <div class="input-field col s6">
-                    <input id="signature" type="text" data-length="10">
-                    <label for="signature">Signature</label>
-                  </div>
-                </div>
-
-
-
-              <button class="btn waves-effect waves-light" type="submit" id="submitcontract"name="action">Submit
-                <i class="material-icons right">send</i>
-              </button>
-              <br>
-              <p>By clicking Submit, you indicate that you have Read and Agree to the <a href="#">
-                  Terms</a> .</p>
-
-            </form>
-          </div>
-        </div>
-
+</div>
+<footer class="page-footer foot">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">Trust Me</h5>
+        <p class="grey-text text-lighten-4">Trust Me does not provide legal services. Nor are we a legal or accredited
+          institution.</p>
+      </div>
+      <div class="col l4 offset-l2 s12">
+        <h5 class="white-text">Links</h5>
+        <ul>
+          <li><a class="grey-text text-lighten-3" href="/login">Log In</a></li>
+          <li><a class="grey-text text-lighten-3" href="/createaccount">Create Account</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">Contact Us</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!"></a></li>
+        </ul>
       </div>
     </div>
   </div>
-  <footer class="page-footer foot">
-          <div class="container">
-            <div class="row">
-              <div class="col l6 s12">
-                <h5 class="white-text">Trust Me</h5>
-                <p class="grey-text text-lighten-4">Trust Me does not provide legal services. Nor are we a legal or accredited institution.</p>
-              </div>
-              <div class="col l4 offset-l2 s12">
-                <h5 class="white-text">Links</h5>
-                <ul>
-                  <li><a class="grey-text text-lighten-3" href="/login">Log In</a></li>
-                  <li><a class="grey-text text-lighten-3" href="/createaccount">Create Account</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Contact Us</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!"></a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="footer-copyright">
-            <div class="container">
-            © 2018 Copyright
-            
-            </div>
-          </div>
-        </footer>
- 
+  <div class="footer-copyright">
+    <div class="container">
+      © 2018 Copyright
+
+    </div>
+  </div>
+</footer>

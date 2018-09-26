@@ -39,9 +39,13 @@ module.exports = function(app) {
   app.post("/api/contracts", function(req, res) {
     console.log(req.body);
     db.Contracts.create({
-      creator_id: req.body.creator_email,
-      receiver_id: req.body.receiver_email,
-      contract_text: req.body.text
+      creator_id: req.body.creatoremail,
+      receiver_id: req.body.contracteeEmail,
+      title: req.body.title,
+      type: req.body.type,
+      offer: req.body.offer,
+      extra: req.body.extra,
+      signature: req.body.signature
     }).then(function(newContract) {
       res.json(newContract);
     });
@@ -70,33 +74,40 @@ module.exports = function(app) {
   });
 
   // POST route for sending a contract to the user.
-  app.post("/api/email", function(req, res) {
+  app.post("/api/send", function(req, res) {
     console.log(req.body);
-    console.log(res.body);
-    // This is the transport object taken from MailTrap for authentification.
-    var transport = nodemailer.createTransport({
-      host: "smtp.mailtrap.io",
-      port: 2525,
-      auth: {
-        user: process.env.mailTrap_USER,
-        pass: process.env.mailTrap_PASSWORD
-      }
-    });
-    // This is the message object that has the options for what gets sent in the email.
-    var message = {
-      from: req.body.email,
-      to: "5dc89f5d17-5de39b@inbox.mailtrap.io",
-      subject: req.body.name,
-      text: req.body.message,
-      replyTo: req.body.email
-    };
-    // This method sends the email using the message object and catches for errors.
-    transport.sendMail(message, function(err, res) {
-      if (err) {
-        console.error("There was an error: ", err);
-      } else {
-        console.log("Here is the res: ", res);
-      }
-    });
+
+    // NON-FUNCTIONING EMAIL SERVER APP
+    // var outputHtml =
+    // `<h1> ${req.body.user} has sent you a contract! Here's what it's for
+    // ${req.body.title}`
+    // // This is the transport object taken from MailTrap for authentification.
+    // var transport = nodemailer.createTransport({
+    //   host: 'smtp.gmail.com',
+    //   port: 465,
+    //   secure: true,
+    //   auth: {
+    //     user: process.env.mailTrap_USER,
+    //     pass: process.env.mailTrap_PASSWORD
+    //   }
+    // });
+    // // This is the message object that has the options for what gets sent in the email.
+    // var message = {
+    //   from: "trustus@gmail.com",
+    //   to: req.body.contacteeEmail,
+    //   subject: req.body.title,
+    //   text: req.body.offer,
+    //   replyTo: "trustus@gmail.com",
+    //   html: outputHtml
+    // };
+    // // This method sends the email using the message object and catches for errors.
+    // transport.sendMail(message, function(err, res) {
+    //   if (err) {
+    //     console.error("There was an error: ", err);
+    //   } else {
+    //     console.log("Here is the res: ", res);
+    //     res.render("dashboard")
+    //   }
+    // });
   });
 };
