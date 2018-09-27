@@ -1,5 +1,5 @@
 var db = require("../models");
-var nodemailer = require("nodemailer");
+// var nodemailer = require("nodemailer");
 require("dotenv").config();
 
 // Routes
@@ -76,7 +76,7 @@ module.exports = function(app) {
   // POST route for sending a contract to the user.
   app.post("/api/send", function(req, res) {
     console.log(req.body);
-
+    console.log(res.body);
     // NON-FUNCTIONING EMAIL SERVER APP
     // var outputHtml =
     // `<h1> ${req.body.user} has sent you a contract! Here's what it's for

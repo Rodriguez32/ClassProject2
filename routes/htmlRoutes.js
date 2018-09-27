@@ -32,7 +32,7 @@ module.exports = function(app) {
         creator_id: req.params.email
       }
     }).then(function(myContracts) {
-      console.log(myContracts[0].dataValues.contract_id);
+      // console.log(myContracts[0].dataValues.contract_id);
       res.render("dashboard", {
         myContracts: myContracts
       });
