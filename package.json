@@ -9,6 +9,10 @@
     "fix": "eslint --fix .",
     "test": "npm run lint && NODE_ENV=test mocha -u tdd --reporter spec --exit"
   },
+  "keywords": [
+    "example",
+    "heroku"
+  ],
   "license": "ISC",
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
